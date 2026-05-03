@@ -1,0 +1,87 @@
+# ----------------------
+# OS files
+# ----------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ----------------------
+# Logs
+# ----------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ----------------------
+# Environment variables
+# ----------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------
+# Dependency directories
+# ----------------------
+node_modules/
+vendor/
+
+# ----------------------
+# Build / output folders
+# ----------------------
+dist/
+build/
+out/
+.cache/
+.next/
+.nuxt/
+
+# ----------------------
+# Python
+# ----------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+venv/
+.env/
+
+# ----------------------
+# Java / Kotlin / Gradle
+# ----------------------
+.gradle/
+build/
+*.class
+out/
+
+# ----------------------
+# C / C++ / CMake
+# ----------------------
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+Makefile
+
+# ----------------------
+# Editor / IDE
+# ----------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ----------------------
+# Testing / coverage
+# ----------------------
+coverage/
+.nyc_output/
+
+# ----------------------
+# Misc
+# ----------------------
+*.tmp
+*.temp
+*.bak
