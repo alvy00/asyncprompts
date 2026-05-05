@@ -242,4 +242,92 @@ export const templates: Template[] = [
 
               Output only the cover letter itself — nothing else. No preamble. No "Here is your cover letter." No explanation after. Start directly with the salutation or the opening line of the letter.`,
     },
+    {
+        id: "interview-questions",
+        name: "Interview Questions",
+        description:
+            "A prompt to generate interview questions to a specific job posting",
+        icon: "📄",
+        fields: [
+            {
+                id: "job_description",
+                label: "Job Description",
+                placeholder: "Paste the job posting here...",
+                type: "textarea",
+                rows: 10,
+            },
+            {
+                id: "questions_amount",
+                label: "Amount of Qustions",
+                placeholder: "Specify the amount of question you want",
+                type: "textarea",
+                rows: 2,
+            },
+        ],
+        body: `ROLE: Act as a world-class Interview Coach, Tech Recruiter (15+ years experience), and Behavioral Psychology Expert who helps candidates — especially freshers — ace interviews and psychologically guide interviewers toward a favorable decision.
+
+            TASK: Based on my profile and the job description below, generate the most frequently asked, industry-standard interview questions for this role. For each question, provide a short impressive answer, likely follow-up questions, and a psychological strategy to steer the conversation in my favor.
+
+            ──────────────────────────────────────
+            MY PROFILE
+            ──────────────────────────────────────
+            Experience Level: Fresher (0–1 year)
+            Tech Stack:
+            Frontend  : HTML | CSS | Tailwind CSS | React.js | Next.js | JavaScript | TypeScript | REST API Integration
+            Backend   : Node.js | Express.js | MongoDB | PostgreSQL | JWT Authentication | Firebase | WebSockets
+            Tools     : Git & GitHub | VS Code | Jira | Chrome DevTools | Postman | Vercel | Figma | npm/yarn
+            Practices : Agile | Scrum | API Design & Integration | Responsive Design | Version Control | Code Review
+            Soft Skills: Problem-Solving | Team Leadership | Scrum Management | Communication | Adaptability
+
+            Key Strengths:
+            - Strong in JavaScript — especially logic building & problem solving
+            - Fast learner who adapts quickly to new tools and frameworks
+            - Good communication & collaboration skills in team environments
+            - Competitive programmer, adaptive mindset
+
+            ──────────────────────────────────────
+            JOB DESCRIPTION
+            ──────────────────────────────────────
+            {{job_description}}
+
+            ──────────────────────────────────────
+            OUTPUT INSTRUCTIONS
+            ──────────────────────────────────────
+            Generate exactly {{questions_amount}} questions. For EACH question, follow this exact format:
+
+            QUESTION [N] — [Category: Behavioral / Technical / Situational / HR / Role-fit]
+            Q: [The exact interview question]
+
+            MY ANSWER:
+            [2–5 sentence answer. Short, sharp, confident, human tone. Not robotic or textbook. Mention 1 specific technology or skill from the JD where relevant. Sound like a self-aware, capable fresher — not a nervous one.]
+
+            WHY THIS WORKS:
+            [1 sentence explaining why this answer impresses interviewers.]
+
+            LIKELY FOLLOW-UP QUESTIONS:
+            FQ1: [Follow-up question the interviewer will probably ask next]
+            FA1: [2–3 sentence answer — equally sharp and confident]
+
+            FQ2: [Second follow-up question]
+            FA2: [2–3 sentence answer]
+
+            PSYCHOLOGICAL STRATEGY:
+            [1 tactical tip on HOW to deliver this answer — e.g., pause before answering, end with a redirecting question, use a specific story arc, drop a number or result, mirror their language, etc. — to psychologically steer the interviewer in your favor.]
+
+            TRAP TO AVOID:
+            [The single most common mistake candidates make on this question — and how to sidestep it.]
+
+            ──────────────────────────────────────
+            RULES — follow all strictly
+            ──────────────────────────────────────
+            - Tailor every question and answer to the JD — no generic filler
+            - Questions must be the most frequently asked in real interviews for this role — not theory, not edge cases
+            - Answers must be SHORT (2–5 sentences max), natural, and confident
+            - Never use vague phrases like "I am a hardworking individual" or "I am passionate about technology"
+            - Tone: human, direct, impressive — like a sharp candidate who knows their worth
+            - The follow-up questions should be ones the interviewer naturally asks AFTER hearing a good answer — so the candidate can pre-plant hooks in their main answer
+            - Psychological strategies must be practical and tactical — not motivational fluff
+            - Cover a mix of: HR/intro questions, technical questions relevant to the JD, behavioral questions, situational questions, and role-fit questions
+            - End with a BONUS SECTION: "3 Smart Questions To Ask The Interviewer" — questions that make the candidate look curious, strategic, and genuinely interested in the role`,
+    },
 ];

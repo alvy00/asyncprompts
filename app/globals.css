@@ -1,42 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --bg: #0e0e0f;
-  --bg-card: #161618;
-  --bg-hover: #1e1e21;
-  --border: #2a2a2e;
-  --border-active: #4a4a52;
-  --text-primary: #f0efe8;
-  --text-secondary: #8b8b96;
-  --text-muted: #55555f;
-  --accent: #d4a843;
-  --accent-dim: rgba(212,168,67,0.13);
-  --accent-hover: #e0b856;
-  --success: #4caf7d;
-  --font-display: 'DM Serif Display', Georgia, serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-mono: 'DM Mono', monospace;
+@theme {
+    /* Soft, Elegant Typography */
+    --font-display: "Instrument Serif", serif;
+    --font-sans: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    /* Organic Dark Palette */
+    --color-background: #0d110f; /* Deep Forest Black */
+    --color-panel: #161c19; /* Muted Eucalyptus */
+    --color-panel-hover: #1f2622;
+
+    /* Soft Borders */
+    --color-stroke: #2a332e;
+    --color-stroke-active: #4a5750;
+
+    /* Bone & Moss Typography */
+    --color-content-primary: #e6e8e2; /* Bone White */
+    --color-content-secondary: #8e9992; /* Sage Gray */
+    --color-content-muted: #4e5953;
+
+    /* Copper Accent (Replaces Gold) */
+    --color-gold: #c58d6d; /* Muted Copper */
+    --color-gold-muted: rgba(197, 141, 109, 0.1);
+    --color-gold-bright: #d9a88d;
+
+    /* Status Colors */
+    --color-success-green: #88ab75;
+    --radius-xl: 1.25rem;
+    --radius-2xl: 2rem;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html, body {
-  background-color: var(--bg);
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
+@layer base {
+    *,
+    ::after,
+    ::before {
+        @apply border-stroke;
+    }
+    body {
+        @apply bg-background text-content-primary font-sans antialiased;
+        /* Subtle organic grain effect */
+        background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+    }
 }
 
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--border-active); }
-
-::selection { background: var(--accent-dim); color: var(--accent); }
-
-textarea, input { font-family: var(--font-body); }
+/* Slim Forest Scrollbar */
+::-webkit-scrollbar {
+    width: 3px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-stroke);
+    border-radius: 5px;
+}

@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { Template } from "@/lib/templates";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Props {
     templates: Template[];
@@ -13,170 +15,152 @@ export default function TemplateSidebar({
     selected,
     onSelect,
 }: Props) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleSelect = (t: Template) => {
+        onSelect(t);
+        setIsOpen(false); // Close drawer on mobile after selection
+    };
+
     return (
-        <aside
-            style={{
-                width: 260,
-                minWidth: 260,
-                background: "var(--bg-card)",
-                borderRight: "1px solid var(--border)",
-                display: "flex",
-                flexDirection: "column",
-                padding: "32px 0",
-                position: "sticky",
-                top: 0,
-                height: "100vh",
-                overflowY: "auto",
-            }}
-        >
-            {/* Logo */}
-            <div style={{ padding: "0 24px 28px" }}>
-                <div
-                    style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: 22,
-                        color: "var(--accent)",
-                        letterSpacing: "-0.01em",
-                    }}
-                >
+        <>
+            {/* MOBILE HEADER - Only visible on small screens */}
+            <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-panel/80 backdrop-blur-md border-b border-stroke z-40 flex items-center justify-between px-6">
+                <h1 className="font-display text-xl text-gold tracking-tight">
                     AsyncPrompts
-                </div>
-                <div
-                    style={{
-                        fontSize: 12,
-                        color: "var(--text-muted)",
-                        fontFamily: "var(--font-mono)",
-                        marginTop: 2,
-                    }}
+                </h1>
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="p-2 text-gold hover:bg-gold-muted rounded-lg transition-colors"
                 >
-                    fill. build. copy.
-                </div>
-            </div>
-
-            {/* Divider */}
-            <div
-                style={{
-                    height: 1,
-                    background: "var(--border)",
-                    margin: "0 0 16px",
-                }}
-            />
-
-            {/* Section label */}
-            <div
-                style={{
-                    padding: "0 24px 10px",
-                    fontSize: 11,
-                    fontFamily: "var(--font-mono)",
-                    color: "var(--text-muted)",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                }}
-            >
-                Templates
-            </div>
-
-            {/* Template list */}
-            <nav style={{ flex: 1 }}>
-                {templates.map((t) => {
-                    const isActive = t.id === selected.id;
-                    return (
-                        <button
-                            key={t.id}
-                            onClick={() => onSelect(t)}
-                            style={{
-                                display: "flex",
-                                alignItems: "flex-start",
-                                gap: 12,
-                                width: "100%",
-                                padding: "12px 24px",
-                                background: isActive
-                                    ? "var(--accent-dim)"
-                                    : "transparent",
-                                border: "none",
-                                borderLeft: isActive
-                                    ? "2px solid var(--accent)"
-                                    : "2px solid transparent",
-                                cursor: "pointer",
-                                textAlign: "left",
-                                transition: "background 0.15s ease",
-                            }}
-                            onMouseEnter={(e) => {
-                                if (!isActive)
-                                    (
-                                        e.currentTarget as HTMLButtonElement
-                                    ).style.background = "var(--bg-hover)";
-                            }}
-                            onMouseLeave={(e) => {
-                                if (!isActive)
-                                    (
-                                        e.currentTarget as HTMLButtonElement
-                                    ).style.background = "transparent";
-                            }}
+                    {isOpen ? (
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
                         >
-                            <span
-                                style={{
-                                    fontSize: 18,
-                                    lineHeight: 1.4,
-                                    flexShrink: 0,
-                                }}
-                            >
-                                {t.icon}
-                            </span>
-                            <div>
-                                <div
-                                    style={{
-                                        fontSize: 13,
-                                        fontWeight: isActive ? 600 : 400,
-                                        color: isActive
-                                            ? "var(--accent)"
-                                            : "var(--text-primary)",
-                                        lineHeight: 1.4,
-                                        fontFamily: "var(--font-body)",
-                                    }}
-                                >
-                                    {t.name}
-                                </div>
-                                <div
-                                    style={{
-                                        fontSize: 11,
-                                        color: "var(--text-muted)",
-                                        marginTop: 2,
-                                        lineHeight: 1.4,
-                                    }}
-                                >
-                                    {t.fields.length} field
-                                    {t.fields.length !== 1 ? "s" : ""}
-                                </div>
-                            </div>
-                        </button>
-                    );
-                })}
-            </nav>
-
-            {/* Footer hint */}
-            <div
-                style={{
-                    padding: "20px 24px 0",
-                    borderTop: "1px solid var(--border)",
-                    fontSize: 11,
-                    color: "var(--text-muted)",
-                    lineHeight: 1.6,
-                }}
-            >
-                Add templates in{" "}
-                <code
-                    style={{
-                        fontFamily: "var(--font-mono)",
-                        background: "var(--border)",
-                        padding: "1px 4px",
-                        borderRadius: 3,
-                        fontSize: 10,
-                    }}
-                >
-                    lib/templates.ts
-                </code>
+                            <path d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                    ) : (
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <path d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    )}
+                </button>
             </div>
-        </aside>
+
+            {/* MOBILE OVERLAY */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setIsOpen(false)}
+                        className="fixed inset-0 bg-background/60 backdrop-blur-sm z-40 lg:hidden"
+                    />
+                )}
+            </AnimatePresence>
+
+            {/* SIDEBAR CONTAINER */}
+            <aside
+                className={`
+                fixed inset-y-0 left-0 z-50 w-[280px] bg-panel border-r border-stroke flex flex-col overflow-hidden transition-transform duration-300 ease-in-out
+                lg:translate-x-0 lg:sticky lg:top-0 lg:h-screen
+                ${isOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full lg:translate-x-0"}
+            `}
+            >
+                {/* Branding Header */}
+                <header className="pt-10 pb-8 px-7 hidden lg:block">
+                    <h1 className="font-display text-2xl text-gold tracking-tight italic">
+                        AsyncPrompts
+                    </h1>
+                    <div className="flex items-center gap-2 mt-1.5">
+                        <span className="h-[1px] w-3 bg-gold/30"></span>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-content-muted">
+                            fill • build • copy
+                        </p>
+                    </div>
+                </header>
+
+                {/* Navigation Content */}
+                <div className="flex-1 overflow-y-auto px-3 pb-6 mt-20 lg:mt-0">
+                    <div className="mb-4 px-4 font-mono text-[10px] uppercase tracking-widest text-content-muted opacity-50">
+                        Prompt Library
+                    </div>
+
+                    <nav className="space-y-1">
+                        {templates.map((t) => {
+                            const isActive = t.id === selected.id;
+
+                            return (
+                                <button
+                                    key={t.id}
+                                    onClick={() => handleSelect(t)}
+                                    className="group relative w-full flex items-start gap-4 px-4 py-3.5 rounded-xl transition-all duration-200 outline-none border-none cursor-pointer text-left bg-transparent"
+                                >
+                                    {isActive && (
+                                        <motion.div
+                                            layoutId="activeTab"
+                                            className="absolute inset-0 bg-gold-muted border-l-2 border-gold rounded-r-sm shadow-[inset_1px_0_10px_rgba(212,168,67,0.05)]"
+                                            initial={false}
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 380,
+                                                damping: 30,
+                                            }}
+                                        />
+                                    )}
+
+                                    <div className="relative z-10 flex gap-4 w-full items-center">
+                                        <span
+                                            className={`text-xl transition-transform duration-300 ${
+                                                isActive
+                                                    ? "scale-110 drop-shadow-[0_0_8px_rgba(212,168,67,0.4)]"
+                                                    : "group-hover:scale-110 opacity-60"
+                                            }`}
+                                        >
+                                            {t.icon}
+                                        </span>
+
+                                        <div className="flex flex-col items-start overflow-hidden">
+                                            <span
+                                                className={`text-[13px] leading-snug truncate w-full transition-colors ${
+                                                    isActive
+                                                        ? "text-gold font-medium"
+                                                        : "text-content-primary"
+                                                }`}
+                                            >
+                                                {t.name}
+                                            </span>
+                                            <span className="text-[10px] font-mono text-content-muted mt-0.5">
+                                                {t.fields.length} variables
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    {!isActive && (
+                                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-panel-hover transition-opacity rounded-xl -z-0" />
+                                    )}
+                                </button>
+                            );
+                        })}
+                    </nav>
+                </div>
+            </aside>
+
+            {/* Spacer for mobile layout to prevent content hiding under header */}
+            <div className="h-16 lg:hidden" />
+        </>
     );
 }
