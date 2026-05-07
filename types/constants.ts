@@ -2,7 +2,7 @@ import { Resource } from ".";
 
 export const RESOURCES: Resource[] = [
     { id: "interview", name: "Interview Prep", icon: "💬" },
-    { id: "dos-donts", name: "Dos and Donts", icon: "⚖️" },
+    { id: "misc", name: "Misc", icon: "📚" },
     { id: "best-practices", name: "Best Practices", icon: "✨" },
 ];
 
@@ -83,6 +83,25 @@ export const RESOURCE_DATA = [
                 title: "Backend Session Video",
                 type: "Video",
                 url: "https://drive.google.com/file/d/1hxscHicKY_PX6kQ4GshDHqnQpe2JcpGy/view?usp=sharing",
+            },
+            {
+                title: "Backend Session Slides",
+                type: "Notion",
+                url: "https://www.notion.so/Node-Express-and-MongoDB-312e6b9c449a8008a537c970327fa46e?source=copy_link",
+            },
+        ],
+    },
+];
+
+export const MISC_RESOURCES = [
+    {
+        category: "Useful Links",
+        tag: "01",
+        links: [
+            {
+                title: "Leading companies for early careers",
+                type: "Website",
+                url: "https://devhubbd.com/companies",
             },
         ],
     },

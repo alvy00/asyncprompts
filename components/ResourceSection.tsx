@@ -1,8 +1,8 @@
 "use client";
 
 import BestPractices from "./Resources/BestPractices";
-import DosDonts from "./Resources/DosDonts";
 import InterviewPrep from "./Resources/InterviewPrep";
+import Misc from "./Resources/Misc";
 
 interface ResourceContentProps {
     id: string;
@@ -15,8 +15,8 @@ export default function ResourceSection({ id }: ResourceContentProps) {
                 switch (id) {
                     case "interview":
                         return <InterviewPrep />;
-                    case "dos-donts":
-                        return <DosDonts />;
+                    case "misc":
+                        return <Misc />;
                     case "best-practices":
                         return <BestPractices />;
                     default:
