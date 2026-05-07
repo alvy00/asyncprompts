@@ -1,6 +1,6 @@
 "use client";
 
-import { Template } from "@/lib/templates";
+import { Template } from "@/types";
 import { motion } from "framer-motion";
 
 interface Props {

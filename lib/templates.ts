@@ -1,19 +1,4 @@
-export interface TemplateField {
-    id: string;
-    label: string;
-    placeholder: string;
-    type: "text" | "textarea";
-    rows?: number;
-}
-
-export interface Template {
-    id: string;
-    name: string;
-    description: string;
-    icon: string;
-    fields: TemplateField[];
-    body: string;
-}
+import { Template } from "@/types";
 
 export const templates: Template[] = [
     {

@@ -94,15 +94,8 @@ export default function PreviewModal({ prompt, onClose }: Props) {
                     </div>
                 </header>
 
-                {/* The "Slate" - Fixed alignment */}
                 <div className="flex-1 overflow-y-auto bg-[#0c0c0e] relative selection:bg-gold/30 selection:text-gold">
-                    {/* Vertical guideline */}
                     <div className="absolute left-8 top-0 bottom-0 w-[1px] bg-stroke/30" />
-
-                    {/* 
-                        CRITICAL: The <pre> tag and {prompt} must be on the same line 
-                        or have zero indentation to prevent leading whitespace.
-                    */}
                     <pre className="p-10 pl-16 font-mono text-[14px] leading-[1.7] text-content-primary/90 whitespace-pre-wrap break-words">
                         {prompt.trim()}
                     </pre>
