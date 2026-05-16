@@ -9,6 +9,13 @@ export const templates: Template[] = [
         icon: "📄",
         fields: [
             {
+                id: "resume",
+                label: "Your Resume",
+                placeholder: "Paste your full resume text here...",
+                type: "textarea",
+                rows: 8,
+            },
+            {
                 id: "job_description",
                 label: "Job Description",
                 placeholder: "Paste the job posting here...",
@@ -16,49 +23,76 @@ export const templates: Template[] = [
                 rows: 10,
             },
         ],
-        body: `ROLE: Act as an expert Resume Writer and Tech Recruiter with 10+ years of experience crafting ATS-optimized resumes for software engineering roles.
-          TASK: Write a highly customized, ATS-friendly Career Objective for my resume, strictly tailored to the Job Description provided below.
+        body: `ROLE:
+            Act as an elite Resume Strategist and Senior Tech Recruiter with 10+ years of experience 
+            placing software engineers at top-tier product companies and startups. You have an 
+            exceptional ability to read between the lines of a Job Description and craft Career 
+            Objectives that make ATS systems AND human recruiters stop scrolling.
 
-          MY PROFILE
-            Experience Level: Fresher (0-1 year)
-            Tech Stack:
-              Frontend : HTML | CSS | Tailwind CSS | React.js | Next.js  | JavaScript | TypeScript | REST API Integration
-              Backend : Node.js | Express.js | MongoDB | PostgreSQL  | JWT Authentication | Firebase | WebSockets
-              Tools & Others : Git & GitHub | VS Code | Jira | Chrome DevTools | Postman | Vercel | Figma | npm/yarn
-              Practices & Methodology: Agile | Scrum | API Design & Integration | Responsive Design | Version Control | Code Review 
-              Soft Skills : Problem-Solving | Team Leadership | Scrum Management | Communication | Adaptability
-            Key Strengths:
-              Strong in JavaScript — especially logic building & problem solving
-              Fast learner who adapts quickly to new tools and frameworks
-              Good communication & collaboration skills in team environments
-              competitive programmer, adaptive
-            JOB DESCRIPTION:
-              {{job_description}}
+            TASK:
+            Write a brutally tailored, ATS-optimized Career Objective for a fresher web developer's 
+            resume — one that feels like it was written specifically for this role at this company, 
+            because it was.
 
-          WRITING RULES — follow all strictly:
-            Tailor every word to the JD — no copy-paste generics
-            Length: 2-3 lines max (50-70 words)
-            Open with a strong action verb (Engineered, Developed, Built, Leveraged, etc.)
-            Mention 1-2 specific technologies from the JD
-            Include a value proposition — what you bring to the employer
-            Reference the company name or role title if available in the JD
-            Never use vague phrases like:
-            "Seeking a challenging position"
-            "Passionate fresher looking for an opportunity"
-            "Hardworking and dedicated individual"
-            Tone: Natural, professional, confident — human-written, not robotic
-            
-          OUTPUT FORMAT:
-            Deliver exactly 2 variations, formatted like this:
-            Variation 1 — [Focus e.g., Frontend-Heavy] (Career Objective text)
-            Variation 2 — [Focus e.g., Full-Stack / Growth-Oriented] (Career Objective text)
-            After both variations, add a one-line note explaining what makes each one different and when to use which.`,
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+            [RESUME]
+            {{resume}}
+
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+            [JOB DESCRIPTION]
+            {{job_description}}
+
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+            BEFORE WRITING — do this analysis silently (do not show it in output):
+            → Identify the 3 most weighted technical skills in the JD
+            → Identify the tone of the company (startup energy vs corporate vs product-focused)
+            → Extract the company name and exact role title
+            → Find the strongest 1-2 matches between the resume and the JD
+            → Determine whether the role leans frontend, backend, or fullstack
+            Use all of this to inform every word you write.
+
+            WRITING RULES — non-negotiable:
+            ✦ Tailor every single word to the JD — if it could work for any other job, rewrite it
+            ✦ Length: 2-3 lines, strictly 50-70 words — not a word more, not a word less
+            ✦ Open with a strong action verb — Engineered, Architected, Built, Leveraged, Shipped
+            ✦ Name the company or role title naturally within the objective
+            ✦ Mention 1-2 specific technologies pulled directly from the JD — not from the resume alone
+            ✦ Include a clear value proposition — what problem you solve or what you bring to the team
+            ✦ Reflect the candidate's actual experience level honestly — fresher, but sharp and capable
+            ✦ Mirror the language and tone of the JD subtly — if they say "ship fast", reflect urgency
+            ✦ Zero filler phrases. These are permanently banned:
+                ✗ "Seeking a challenging position"
+                ✗ "Passionate fresher looking for an opportunity"  
+                ✗ "Hardworking and dedicated individual"
+                ✗ "To work in a dynamic environment"
+                ✗ "Eager to learn and grow"
+            ✦ Tone: Confident, grounded, human — like someone who knows their worth without arrogance
+            ✦ Must pass the "could this be anyone else?" test — if yes, rewrite until it fails that test
+
+            OUTPUT FORMAT:
+            Deliver exactly 2 variations in this structure — nothing before, nothing after:
+
+            ──────────────────────────────────────
+            Variation 1 — [Specify angle e.g., Frontend-Heavy / Performance-Focused]
+            (Career Objective text)
+
+            ──────────────────────────────────────
+            Variation 2 — [Specify angle e.g., Fullstack / Product-Impact Oriented]
+            (Career Objective text)
+
+            ──────────────────────────────────────
+            WHEN TO USE:
+            Variation 1 → (One sentence: what makes it distinct and which type of role it suits best)
+            Variation 2 → (One sentence: what makes it distinct and which type of role it suits best)`,
     },
     {
         id: "email",
         name: "Email",
         description:
-            "Prompt to generate a compelling, personalised email for the HR",
+            "Prompt to generate a compelling, personalised job inquiry email for the HR",
         icon: "✉️",
         fields: [
             {
@@ -132,6 +166,76 @@ export const templates: Template[] = [
               ---
               APPLICANT RESUME:
               {{resume}}`,
+    },
+    {
+        id: "cold-email",
+        name: "Outreach Email",
+        description:
+            "Prompt to generate a compelling, personalised outreach email for the HR",
+        icon: "✉️",
+        fields: [
+            {
+                id: "resume",
+                label: "Your Resume",
+                placeholder: "Paste your full resume text here...",
+                type: "textarea",
+                rows: 8,
+            },
+            {
+                id: "company_description",
+                label: "Company Description",
+                placeholder: "Paste the company description here...",
+                type: "textarea",
+                rows: 8,
+            },
+        ],
+        body: `You are a world-class cold email strategist and career coach with 15 years of experience helping fresh graduates break into top companies without a single referral. You have an extraordinary ability to write emails that feel like they were written by a real, passionate human being — not a template, not AI, not a cover letter copy-paste. Your emails have opened doors at startups and Fortune 500 companies alike.
+            Your task: Write a cold outreach email from a fresher web developer who is reaching out to a company that has no open internship listing. This email must feel like it was written at midnight by someone who genuinely cannot stop thinking about this company — someone hungry, self-aware, and exciting to talk to.
+            Use everything in the resume and company info below to make this email feel like it could only have been written for THIS company by THIS person:
+
+            [RESUME]
+            {{resume}}
+
+            [COMPANY INFO]
+            {{company_description}}
+
+            Now write the email following these rules without exception:
+            Subject line:
+
+            Must be under 10 words
+            Must feel specific and personal — not clickbait, not generic
+            Should make the reader think "this isn't another mass email"
+            Examples of bad subject lines: "Internship Inquiry", "Aspiring Developer Seeking Opportunity"
+            Examples of good ones: "Built something after reading your blog", "The developer who stayed up reading your docs"
+
+            Opening line:
+
+            Must NOT start with "I", "My name is", or "I am writing to"
+            Must hook instantly — lead with something about the company, a specific product, a problem they solve, or something that genuinely excited you about them
+            This line must make the reader feel seen and make them want to keep reading
+
+            Body (2–3 short paragraphs):
+
+            Paragraph 1: Show you know them deeply — mention something real and specific about the company (a product feature, their stack, their mission, a blog post, a recent launch). Make it feel like you've been following them, not Googling them for 5 minutes
+            Paragraph 2: Connect your most relevant skill or project directly to something they do or a problem they might have. Don't list everything from the resume — pick the ONE thing that makes the strongest case. Make it feel like "this person could actually help us"
+            Paragraph 3: Express your hunger — not desperation, but the kind of drive that makes someone think "I want this person on my team." Show you're someone who builds things, figures things out, and doesn't wait to be taught everything
+
+            Closing:
+
+            End with a soft, confident call to action — not "please consider me", not "I would be honored"
+            Something like offering to share a project, hop on a quick call, or simply asking if there's any room for someone like you
+            Leave them feeling like saying no would be their loss, not your failure
+
+            Non-negotiable rules:
+
+            Total length: 150–200 words only. Every word must earn its place
+            Zero corporate buzzwords: no "synergy", "leverage", "passionate learner", "team player", "go-getter"
+            Must sound like a real 22-year-old who is genuinely excited — not a LinkedIn post
+            No flattery that sounds fake ("Your company is amazing and inspiring")
+            No begging, no desperation, no over-apologizing for being a fresher
+            The word "I" should appear as few times as possible
+            If the HR's name is provided, use it. If not, avoid "Dear Sir/Madam" — use something like "Hi [Company] Team" or find a creative alternative
+            The reader should finish this email and think: "Huh. I want to meet this person."`,
     },
     {
         id: "cv",
