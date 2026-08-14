@@ -1,6 +1,7 @@
 import { Template } from "@/types";
 
 export const templates: Template[] = [
+    // Objective
     {
         id: "resume-job-match",
         name: "Career Objective",
@@ -23,71 +24,79 @@ export const templates: Template[] = [
                 rows: 10,
             },
         ],
-        body: `ROLE:
-            Act as an elite Resume Strategist and Senior Tech Recruiter with 10+ years of experience 
-            placing software engineers at top-tier product companies and startups. You have an 
-            exceptional ability to read between the lines of a Job Description and craft Career 
-            Objectives that make ATS systems AND human recruiters stop scrolling.
+        body: `
+            ROLE
+            Act as a 4-person expert panel collaborating on one output: a Senior Technical Recruiter (ATS + keyword matching), a Senior Software Engineer (technical credibility check), a Senior Prompt Engineer (output precision), and an Organizational Psychologist (persuasion + first-impression framing). Reconcile disagreements silently and produce one unified, high-quality result.
 
-            TASK:
-            Write a brutally tailored, ATS-optimized Career Objective for a fresher web developer's 
-            resume — one that feels like it was written specifically for this role at this company, 
-            because it was.
+            TASK
+            Write a highly customized, ATS-optimized Career Objective for a resume, strictly derived from the job description below — not from generic resume templates.
 
+            MY PROFILE
+            Experience Level: Fresher (0–1 year)
+
+            Tech Stack
+
+            Frontend: HTML, CSS, Tailwind CSS, React.js, Next.js, JavaScript, TypeScript, REST API Integration
+            Backend: Node.js, Express.js, MongoDB, PostgreSQL, JWT Authentication, Firebase, WebSockets
+            Tools: Git & GitHub, VS Code, Jira, Chrome DevTools, Postman, Vercel, Figma, npm/yarn
+            Practices: Agile, Scrum, API Design & Integration, Responsive Design, Version Control, Code Review
+            Soft Skills: Problem-Solving, Team Leadership, Scrum Management, Communication, Adaptability
+            Key Strengths
+
+            Strong in JavaScript — especially logic building & problem solving
+            Fast learner who adapts quickly to new tools and frameworks
+            Good communication & collaboration in team environments
+            Competitive programmer, adaptive
+
+
+            Proof points available (fill in before running the prompt — freshers must anchor claims in something concrete):
+
+            Notable project(s): AuctaSync, CareerPilot
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
             [RESUME]
             {{resume}}
-
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
             [JOB DESCRIPTION]
             {{job_description}}
-
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            PROCESS — follow in order, show your work briefly for Step 1 only
+            Step 1 — Extract from the JD:
 
-            BEFORE WRITING — do this analysis silently (do not show it in output):
-            → Identify the 3 most weighted technical skills in the JD
-            → Identify the tone of the company (startup energy vs corporate vs product-focused)
-            → Extract the company name and exact role title
-            → Find the strongest 1-2 matches between the resume and the JD
-            → Determine whether the role leans frontend, backend, or fullstack
-            Use all of this to inform every word you write.
+            Exact job title
+            Top 5–8 hard-skill keywords (exact phrasing as written in the JD)
+            Top 2–3 soft-skill or culture keywords
+            Company name and, if stated, its mission/product focus
+            Seniority/tone signals (startup vs enterprise, fast-paced vs structured, etc.)
+            Step 2 — Map: Match only the items from MY PROFILE that genuinely overlap with Step 1. Do not force-fit unrelated skills just to pad the list.
 
-            WRITING RULES — non-negotiable:
-            ✦ Tailor every single word to the JD — if it could work for any other job, rewrite it
-            ✦ Length: 2-3 lines, strictly 50-70 words — not a word more, not a word less
-            ✦ Open with a strong action verb — Engineered, Architected, Built, Leveraged, Shipped
-            ✦ Name the company or role title naturally within the objective
-            ✦ Mention 1-2 specific technologies pulled directly from the JD — not from the resume alone
-            ✦ Include a clear value proposition — what problem you solve or what you bring to the team
-            ✦ Reflect the candidate's actual experience level honestly — fresher, but sharp and capable
-            ✦ Mirror the language and tone of the JD subtly — if they say "ship fast", reflect urgency
-            ✦ Zero filler phrases. These are permanently banned:
-                ✗ "Seeking a challenging position"
-                ✗ "Passionate fresher looking for an opportunity"  
-                ✗ "Hardworking and dedicated individual"
-                ✗ "To work in a dynamic environment"
-                ✗ "Eager to learn and grow"
-            ✦ Tone: Confident, grounded, human — like someone who knows their worth without arrogance
-            ✦ Must pass the "could this be anyone else?" test — if yes, rewrite until it fails that test
+            Step 3 — Draft two variations following the WRITING RULES below.
 
-            OUTPUT FORMAT:
-            Deliver exactly 2 variations in this structure — nothing before, nothing after:
+            Step 4 — Self-audit: For each variation, list which exact JD keywords appear in it and confirm the word count is in range.
 
-            ──────────────────────────────────────
-            Variation 1 — [Specify angle e.g., Frontend-Heavy / Performance-Focused]
-            (Career Objective text)
+            WRITING RULES — follow strictly
+            Every sentence must trace back to something specific in the JD — no interchangeable, copy-paste generics.
+            Length: 2–3 lines, 40–60 words (tighter than typical advice — recruiters skim fast).
+            Open with a strong, varied action verb or an impact-first construction — do not default to the same verb pattern every time (e.g. rotate between "Built," "Engineered," "Developed hands-on experience in," a metric-led opener, etc.).
+            Weave in 2–3 exact-phrase keywords from the JD (ATS systems match strings, not synonyms).
+            Include a genuine value proposition — not enthusiasm, but a specific reason this candidate is useful on day one.
+            For a fresher, replace unverifiable "impact" claims with tangible proof: a project, a competitive programming result, a learning-speed indicator. Signal trajectory, not a fabricated track record.
+            Reference the company name and/or exact role title from the JD.
+            Never use: "seeking a challenging position," "passionate fresher looking for an opportunity," "hardworking and dedicated individual," "motivated team player," "results-driven," "dynamic professional," or any stacked-adjective opener.
+            Tone: natural, confident, specific — human-written. Max 2 adjectives in a row anywhere in the text.
+            Do not invent metrics, employers, or claims not present in MY PROFILE or the proof points above.
+            OUTPUT FORMAT
+            Variation 1 — Competence-First (leads with technical stack/project proof; best for JDs that read technical and skills-heavy) [Career Objective text]
 
-            ──────────────────────────────────────
-            Variation 2 — [Specify angle e.g., Fullstack / Product-Impact Oriented]
-            (Career Objective text)
+            Variation 2 — Growth-Trajectory (leads with learning velocity, adaptability, collaboration; best for JDs that emphasize culture fit, mentorship, or startup pace) [Career Objective text]
 
-            ──────────────────────────────────────
-            WHEN TO USE:
-            Variation 1 → (One sentence: what makes it distinct and which type of role it suits best)
-            Variation 2 → (One sentence: what makes it distinct and which type of role it suits best)`,
+            ATS Keyword Check:
+
+            Variation 1 keywords matched: [list]
+            Variation 2 keywords matched: [list]
+            Word counts: V1 = __ words, V2 = __ words
+            One-line guidance: [when to use which, based on how the JD reads]`,
     },
+    // Email
     {
         id: "email",
         name: "Email",
@@ -110,63 +119,71 @@ export const templates: Template[] = [
                 rows: 8,
             },
         ],
-        body: `You are a senior technical recruiter and career strategist with 15+ years of experience placing candidates at top-tier tech companies. Your job is to write a job application email so natural, specific, and compelling that a hiring manager would forward it internally with the note: "Talk to this person."
+        body: `ROLE
+            You are a senior technical recruiter and career strategist with 15+ years of experience placing candidates at top-tier tech companies. Write a job application email so natural, specific, and compelling that a hiring manager would forward it internally with the note: "Talk to this person."
 
-              BEFORE writing anything, silently perform this analysis:
+            Before writing anything, silently perform this analysis:
 
-              PHASE 1 — DEEP RESUME PARSING
-              • Extract the candidate's core technical stack (languages, frameworks, tools, platforms)
-              • Identify their 3 strongest demonstrable skills — not self-described, but evidenced by projects or outcomes
-              • Find their 1–2 most impressive projects that produced measurable results or solved real problems
-              • Note any leadership, ownership, or initiative signals (built from scratch, led, designed, shipped, etc.)
-              • Flag any skill gaps vs. the JD — these must be neutralized, not exposed
+            INPUTS:
+            JOB DESCRIPTION:
+            {{job_description}}
+            APPLICANT RESUME:
+            {{resume}}
 
-              PHASE 2 — JD DECODING
-              • Extract the top 3 hard skills the employer is hiring for
-              • Identify the implicit pain point this role solves for the team
-              • Extract the company's culture signals and growth stage (startup energy vs. enterprise scale)
-              • Note any preferred qualifications that the candidate actually meets
+            PHASE 1 — DEEP RESUME PARSING
+            Extract the candidate's core technical stack (languages, frameworks, tools, platforms).
+            Identify their 3 strongest demonstrable skills — evidenced by projects or outcomes, not self-description.
+            Find their 1–2 most impressive projects that produced a measurable result or solved a real problem.
+            Note any leadership, ownership, or initiative signals (built from scratch, led, designed, shipped, etc.).
+            Flag any skill gaps vs. the JD.
 
-              PHASE 3 — STRATEGIC MAPPING
-              • Map candidate's strongest projects → JD's core needs
-              • Convert any experience gaps into project-proof statements
-              • Build one "genuine resonance" hook — a specific, non-generic reason why this company, this role, right now
+            PHASE 2 — JD DECODING
+            Extract the top 3 hard skills the employer is hiring for.
+            Identify the implicit pain point this role solves for the team.
+            Extract the company's culture signals and growth stage (startup energy vs. enterprise scale) — only from what's actually written in the JD, not assumed.
+            Note any preferred qualifications the candidate actually meets.
+            Note the hiring manager's name if it appears anywhere in the JD or posting; otherwise flag as unknown.
+            
+            PHASE 3 — STRATEGIC MAPPING
+            Map the candidate's strongest projects → the JD's core needs.
+            For any experience gap, reframe honestly via an adjacent project or transferable skill that demonstrates the same underlying competency. Never imply direct experience the candidate doesn't have — reframe, don't fabricate.
+            Build one "genuine resonance" hook — a specific reason this company, this role, right now — sourced only from language actually present in the JD (its stated mission, product focus, team description, or listed problems). If the JD gives nothing usable for this, default to a specific technical/product reason tied to what the role actually builds, not a generic compliment.
+            
+            PHASE 4 — EMAIL DRAFTING RULES
+            Word count: strictly 160–200 words.
+            Voice: confident but not boastful — write like a sharp human, not a LinkedIn post.
+            Structure: 5 tight paragraphs (2–4 sentences each):
+            Hook — name the role, drop one sharp signal of genuine fit.
+            Skills proof — match 2–3 candidate strengths directly to JD requirements, cite specifics.
+            Project spotlight — reference 1 real project with a concrete outcome or impact.
+            Why this company — one specific reason grounded in the JD itself, not a generic compliment.
+            Confident close — clear call to action, no groveling, no "I hope to hear from you."
+            Greeting: use the hiring manager's name if known from Phase 2. If unknown, use "Hi [Team Name] team," or "Hi [Company] hiring team," — never invent a name.
+            Signature: sign off with the candidate's actual name and any contact links (GitHub, portfolio, LinkedIn) only if present in the resume text — never fabricate a link.
+            
+            PHASE 5 — SELF-AUDIT (perform silently before output)
+            Check the drafted email against every rule below. If any fail, rewrite before showing the final version:
 
-              PHASE 4 — EMAIL DRAFTING RULES
-              • Word count: strictly 160–200 words (count before outputting)
-              • Voice: confident but not boastful — write like a sharp human, not a LinkedIn post
-              • Structure: 5 tight paragraphs (2–4 sentences each)
-                1. Hook — name the role, drop one sharp signal of genuine fit
-                2. Skills proof — match 2–3 candidate strengths directly to JD requirements, cite specifics
-                3. Project spotlight — reference 1 real project with a concrete outcome or impact
-                4. Why this company — one authentic, researched-sounding reason that isn't "I admire your growth"
-                5. Confident close — clear call to action, no groveling, no "I hope to hear from you"
+            Word count is between 160–200 (state the exact count)
+            No sentence starts with "I" more than twice in the full email
+            No banned phrase appears anywhere (see below)
+            Every skill or project mentioned is traceable to the actual resume text
+            The "why this company" line uses only facts present in the JD
+            No placeholder brackets remain anywhere in the output
+            ABSOLUTE RULES — NEVER BREAK THESE
+            Never write "I am a passionate..." or "I am a quick learner" — show, don't tell.
+            Never use "dynamic team," "fast-paced environment," "honed my skills," or similar filler phrases.
+            Never start a sentence with "I" more than twice in the full email.
+            Never mention a skill, tool, or outcome that isn't evidenced in the resume.
+            Never invent a hiring manager's name, a company fact, or a metric not present in the inputs.
+            Never leave a generic "why this company" — it must trace to specific JD language.
+            No filler sentences. Every line earns its place.
+            OUTPUT FORMAT
+            Subject: [Specific, role-relevant subject line — use one of: "{Role} — {one sharp differentiator}" or "{Candidate's strongest matching skill} for {Company}'s {Role}"]
 
-              ABSOLUTE RULES — NEVER BREAK THESE:
-              • Never write "I am a passionate..." or "I am a quick learner" — show, don't tell
-              • Never use phrases like "dynamic team", "fast-paced environment", "honed my skills"
-              • Never start a sentence with "I" more than twice in the full email
-              • Never mention skills that aren't evidenced in the resume
-              • Never use a generic "Why this company" — it must feel researched and specific
-              • If the candidate lacks direct experience, frame a project that demonstrates the same underlying competency
-              • No filler sentences. Every line must earn its place.
-
-              OUTPUT FORMAT:
-              Subject: [Specific, role-relevant subject line — not "Application for [Role]"]
-
-              [Email body — ready to send, no placeholders, no brackets]
-
-              ---
-              INPUTS:
-
-              ---
-              JOB DESCRIPTION:
-              {{job_description}}
-
-              ---
-              APPLICANT RESUME:
-              {{resume}}`,
+            [Email body — ready to send, no placeholders, no brackets]`,
     },
+    // Cold Email
     {
         id: "cold-email",
         name: "Outreach Email",
@@ -189,54 +206,76 @@ export const templates: Template[] = [
                 rows: 8,
             },
         ],
-        body: `You are a world-class cold email strategist and career coach with 15 years of experience helping fresh graduates(remote internship) break into top companies without a single referral. You have an extraordinary ability to write emails that feel like they were written by a real, passionate human being — not a template, not AI, not a cover letter copy-paste. Your emails have opened doors at startups and Fortune 500 companies alike.
-            Your task: Write a cold outreach email from a fresher web developer who is reaching out to a company that has no open internship listing. This email must feel like it was written at midnight by someone who genuinely cannot stop thinking about this company — someone hungry, self-aware, and exciting to talk to.
-            Use everything in the resume and company info below to make this email feel like it could only have been written for THIS company by THIS person:
+        body: `ROLE
 
-            [RESUME]
-            {{resume}}
+                You are a world-class cold email strategist and career coach with 15 years of experience helping fresh graduates break into top companies without a referral. You write emails that read like they came from a real, specific, self-aware person — not a template, not an AI, not a cover-letter copy-paste.
 
-            [COMPANY INFO]
-            {{company_description}}
+                TASK
 
-            Now write the email following these rules without exception:
-            Subject line:
+                Write a cold outreach email from a fresher web developer to a company that has no open internship listing. The email should read like it was written by someone who did real, specific digging and found a genuine reason to reach out — curious, self-aware, and interesting to talk to. Not desperate. Not performing intensity.
 
-            Must be under 10 words
-            Must feel specific and personal — not clickbait, not generic
-            Should make the reader think "this isn't another mass email"
-            Examples of bad subject lines: "Internship Inquiry", "Aspiring Developer Seeking Opportunity"
-            Examples of good ones: "Built something after reading your blog", "The developer who stayed up reading your docs"
+                INPUTS
 
-            Opening line:
+                [RESUME] {{resume}}
 
-            Must NOT start with "I", "My name is", or "I am writing to"
-            Must hook instantly — lead with something about the company, a specific product, a problem they solve, or something that genuinely excited you about them
-            This line must make the reader feel seen and make them want to keep reading
+                [COMPANY INFO] {{company_description}}
 
-            Body (2–3 short paragraphs):
+                PHASE 0 — GROUND BEFORE WRITING (perform silently)
+                From RESUME: identify the candidate's 2–3 strongest evidenced skills or projects, and one standout project with a real, specific detail (what it does, what it solves, what was hard about it).
+                From COMPANY INFO: pull 2–3 concrete details that are explicitly present in the text (a product feature, a stated mission, their stack, a described problem they solve). Do not use anything not present — no invented "recent launch," no invented blog post, no assumed culture traits.
+                If COMPANY INFO is thin (a one-line description), do not compensate by inventing specifics. Anchor the hook in whatever real detail exists, even a small one — genuine but modest beats vivid but fabricated.
+                
+                SUBJECT LINE
+                Under 10 words.
+                Specific and personal — not clickbait, not generic.
+                Should make the reader think "this isn't another mass email."
+                Bad: "Internship Inquiry," "Aspiring Developer Seeking Opportunity."
+                Good: "The developer who read your docs twice," "Noticed how you handle [specific thing]."
+                Only use a "built something because of you" framing if the resume actually shows a project genuinely connected to this company — never imply a project exists that doesn't.
+                
+                OPENING LINE
+                Must NOT start with "I," "My name is," or "I am writing to."
+                Must hook instantly — lead with the one real, specific company detail from Phase 0, not a general compliment.
+                Ground curiosity in something specific and true. Do not declare emotional intensity ("I can't stop thinking about you") — show engagement through the detail itself, not a stated feeling about it.
+                BODY (2–3 short paragraphs)
+                You know them, specifically — reference the real detail from Phase 0 (a product feature, their stack, their stated mission, something they actually describe doing). It should read like genuine engagement, not a 5-minute Google summary.
+                Your strongest relevant proof — connect ONE real project or skill from the resume directly to something this company does or a problem they likely face. Don't list the resume. Pick the single strongest case, and don't stretch the connection further than the resume actually supports.
+                Drive, demonstrated not declared — show the kind of person who builds things and figures things out, using something concrete from the resume (a project built independently, a problem solved without being asked). Not a statement of passion or hunger — an example of it.
+                
+                CLOSING
+                Soft, confident call to action — not "please consider me," not "I would be honored."
+                Offer something concrete: share a project, a quick call, or ask directly if there's room for someone like you.
+                Sign off with the candidate's actual name, and a portfolio/GitHub/LinkedIn link only if one appears in the resume — never invent a link.
+                Should leave the reader thinking a "no" would be their loss, not the sender's failure — without saying that outright.
+                
+                NON-NEGOTIABLE RULES
+                Total length: 150–200 words. Every word earns its place.
+                Zero corporate buzzwords: no "synergy," "leverage," "passionate learner," "team player," "go-getter."
+                Sounds like a real 22-year-old who's genuinely engaged — not a LinkedIn post.
+                No flattery that sounds fake ("Your company is amazing and inspiring").
+                No begging, no desperation, no apologizing for being a fresher.
+                The word "I" appears no more than 3 times in the entire email.
+                If an HR/hiring manager name is given, use it. If not, avoid "Dear Sir/Madam" — use "Hi [Company] Team" or an equally natural alternative. Never invent a name.
+                Never state a company fact, feature, launch, or post that isn't explicitly present in {{company_description}}.
+                Never mention a skill, project, or outcome that isn't evidenced in {{resume}}.
+                
+                SELF-AUDIT (perform silently before output)
+                Word count is 150–200 (state the count)
+                "I" appears 3 times or fewer
+                Subject line is under 10 words and passes the "not another mass email" test
+                Opening line doesn't start with a banned phrase and doesn't declare emotional intensity
+                Every company detail traces to {{company_description}}
+                Every skill/project traces to {{resume}}
+                No banned buzzwords appear anywhere
+                Greeting follows the name-known / name-unknown fallback correctly
+                
+                OUTPUT FORMAT
 
-            Paragraph 1: Show you know them deeply — mention something real and specific about the company (a product feature, their stack, their mission, a blog post, a recent launch). Make it feel like you've been following them, not Googling them for 5 minutes
-            Paragraph 2: Connect your most relevant skill or project directly to something they do or a problem they might have. Don't list everything from the resume — pick the ONE thing that makes the strongest case. Make it feel like "this person could actually help us"
-            Paragraph 3: Express your hunger — not desperation, but the kind of drive that makes someone think "I want this person on my team." Show you're someone who builds things, figures things out, and doesn't wait to be taught everything
+                Subject: [subject line]
 
-            Closing:
-
-            End with a soft, confident call to action — not "please consider me", not "I would be honored"
-            Something like offering to share a project, hop on a quick call, or simply asking if there's any room for someone like you
-            Leave them feeling like saying no would be their loss, not your failure
-
-            Non-negotiable rules:
-
-            Total length: 150–200 words only. Every word must earn its place
-            Zero corporate buzzwords: no "synergy", "leverage", "passionate learner", "team player", "go-getter"
-            Must sound like a real 22-year-old who is genuinely excited — not a LinkedIn post
-            No flattery that sounds fake ("Your company is amazing and inspiring")
-            No begging, no desperation, no over-apologizing for being a fresher
-            The word "I" should appear as few times as possible
-            If the HR's name is provided, use it. If not, avoid "Dear Sir/Madam" — use something like "Hi [Company] Team" or find a creative alternative
-            The reader should finish this email and think: "Huh. I want to meet this person."`,
+                [Email body — ready to send, no placeholders, no brackets]`,
     },
+    // CV
     {
         id: "cv",
         name: "CV",
@@ -331,6 +370,7 @@ export const templates: Template[] = [
 
               Output only the cover letter itself — nothing else. No preamble. No "Here is your cover letter." No explanation after. Start directly with the salutation or the opening line of the letter.`,
     },
+    // Interview questions
     {
         id: "interview-questions",
         name: "Interview Questions",
